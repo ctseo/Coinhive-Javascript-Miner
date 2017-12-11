@@ -1,1 +1,2 @@
-Coinhive JavaScript Miner - Look here https://coinhive.com/documentation
+Coinhive JavaScript Miner 
+https://coinhive.com/documentation
