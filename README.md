@@ -28,4 +28,4 @@ API Reference
 		# .getTotalHashes([interpolate])
 		# .getAcceptedHashes()
 	
-  Doc: https://coinhive.com/documentation/miner
+  https://coinhive.com/documentation/miner
